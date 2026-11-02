@@ -324,6 +324,18 @@ details p{margin:0 0 18px;padding-right:34px;font-size:14.5px;color:var(--ink-2)
   *{transition:none!important}
 }
 
+/* ── 运行效果数值 ─────────────────────────────────────── */
+.stat-num{font-size:clamp(21px,2.5vw,26px);font-weight:650;color:var(--brand);letter-spacing:-.02em;line-height:1.25}
+.stat-label{margin:6px 0 0;font-size:13px;color:var(--ink-2);line-height:1.7}
+.stat-note{margin:8px 0 0;padding-top:7px;border-top:1px dashed var(--line);font-size:11.5px;color:var(--muted);line-height:1.65}
+
+/* ── 经验四步 ─────────────────────────────────────────── */
+.exp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}
+.exp-step{border:1px solid var(--line);border-radius:10px;padding:14px 15px;background:#fff}
+.exp-step b{display:block;margin-bottom:4px;font-size:13px;font-weight:600}
+.exp-step span{display:block;font-size:12px;color:var(--muted);line-height:1.6}
+.foot-org{margin:3px 0 0;font-size:12.5px;font-weight:550;color:var(--brand-ink)}
+
 /* ── 响应式 ─────────────────────────────────────────── */
 @media (max-width:960px){
   .nav-links,.nav-cta{display:none}
@@ -332,6 +344,7 @@ details p{margin:0 0 18px;padding-right:34px;font-size:14.5px;color:var(--ink-2)
   .pages-list{grid-template-columns:repeat(2,minmax(0,1fr))}
   .mock-body{grid-template-columns:112px minmax(0,1fr)}
   .mock-right{display:none}
+  .exp{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:720px){
   body{font-size:15.5px}
@@ -342,4 +355,5 @@ details p{margin:0 0 18px;padding-right:34px;font-size:14.5px;color:var(--ink-2)
   .mock-body{grid-template-columns:minmax(0,1fr)}
   .mock-side{display:none}
   .pages-list{grid-template-columns:minmax(0,1fr)}
+  .exp{grid-template-columns:minmax(0,1fr)}
 }

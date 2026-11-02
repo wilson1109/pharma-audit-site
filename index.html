@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>制药 GMP 文件审核辅助系统 · 把初筛交给一套可复核的流程</title>
-<meta name="description" content="制药 GMP 文件审核辅助系统：输入被审文件与基准制度，逐条比对，产出带依据原文的问题清单与完整性结论。系统做初筛，判断留给人。">
+<title>制药 GMP 文件审核辅助系统 · 把初审交给一套可复核的流程</title>
+<meta name="description" content="制药 GMP 文件审核辅助系统：上传被审文件与基准制度，逐条比对后给出带依据原文的问题清单与完整性结论。系统做初审，判断留给人。">
 <meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:title" content="制药 GMP 文件审核辅助系统">
-<meta property="og:description" content="把 GMP 文件的初筛，交给一套可复核的流程。问题清单 + 完整性结论，每条都带依据原文。">
+<meta property="og:description" content="把 GMP 文件的初审，交给一套可复核的流程。问题清单 + 完整性结论，每条都带依据原文。">
 <meta property="og:url" content="https://wilson1109.github.io/pharma-audit-site/">
 <link rel="canonical" href="https://wilson1109.github.io/pharma-audit-site/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -34,10 +34,12 @@
     </a>
     <nav class="nav-links" aria-label="页面导航">
       <a href="#position">定位</a>
-      <a href="#flow">审核流程</a>
-      <a href="#capability">核心能力</a>
+      <a href="#flow">流程</a>
+      <a href="#capability">能力</a>
       <a href="#ui">界面</a>
-      <a href="#stack">技术架构</a>
+      <a href="#results">运行效果</a>
+      <a href="#stack">架构</a>
+      <a href="#security">数据安全</a>
       <a href="#faq">常见问题</a>
     </nav>
     <a class="btn btn-ghost nav-cta" href="https://github.com/wilson1109/pharma-audit-site" target="_blank" rel="noopener">GitHub 仓库</a>
@@ -47,10 +49,12 @@
   </div>
   <div class="nav-mobile" id="navMobile" hidden>
     <a href="#position">定位</a>
-    <a href="#flow">审核流程</a>
-    <a href="#capability">核心能力</a>
+    <a href="#flow">流程</a>
+    <a href="#capability">能力</a>
     <a href="#ui">界面</a>
-    <a href="#stack">技术架构</a>
+    <a href="#results">运行效果</a>
+    <a href="#stack">架构</a>
+    <a href="#security">数据安全</a>
     <a href="#faq">常见问题</a>
     <a href="https://github.com/wilson1109/pharma-audit-site" target="_blank" rel="noopener">GitHub 仓库</a>
   </div>
@@ -60,21 +64,20 @@
 
   <section class="hero" id="top">
     <div class="wrap">
-      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>原型阶段 · 内部验证中</p>
-      <h1>把 GMP 文件的初筛<br>交给一套<b>可复核</b>的流程</h1>
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>原型阶段 · 复星安特金精益运营部开发</p>
+      <h1>把 GMP 文件的初审<br>交给一套<b>可复核</b>的流程</h1>
       <p class="lede">
-        给一份被审文件与一套基准（制度 / 规程），系统逐条比对，产出
-        <b>问题清单</b>与<b>完整性结论</b>。每一条都附依据原文，复核动作由人做并落库——
-        它不替代判断，只把「看不过来」的那部分整理成待复核清单。
+        上传一份被审文件和一套基准（制度、规程），系统逐条比对后给出问题清单和完整性结论。
+        每条问题都附依据原文。判断留给人，系统只负责把该看的地方找出来。
       </p>
       <div class="hero-actions">
         <a class="btn btn-solid" href="#flow">看它怎么审</a>
-        <a class="btn btn-line" href="#capability">核心能力</a>
+        <a class="btn btn-line" href="#results">看实跑数据</a>
       </div>
       <dl class="hero-stats">
         <div><dt>5</dt><dd>审核域专家</dd></div>
         <div><dt>0–8</dt><dd>知识评审实例</dd></div>
-        <div><dt>4</dt><dd>严重度档位</dd></div>
+        <div><dt>4</dt><dd>档处置级</dd></div>
         <div><dt>逐条</dt><dd>可回溯依据原文</dd></div>
       </dl>
     </div>
@@ -84,36 +87,36 @@
     <div class="wrap">
       <header class="sec-head">
         <p class="kicker">定位</p>
-        <h2>辅助人做初筛，不替代人的判断</h2>
-        <p class="sec-lede">这不是「AI 自动审完出结论」，而是一条把口径固定下来、把证据留住的流水线。</p>
+        <h2>辅助人做初审，不替代人的判断</h2>
+        <p class="sec-lede">它输出的是待复核的问题候选。定位、依据、原文都摆在明面上，最后那一票由人投。</p>
       </header>
       <div class="grid grid-3">
         <article class="card">
           <span class="card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
           </span>
-          <h3>先做初筛</h3>
-          <p>把「可能有问题」的位置标出来，人只需要看该看的那几页，而不是从头通读一遍。</p>
+          <h3>先过一遍</h3>
+          <p>把可能有问题的位置标出来，人只看这几页，不必从头通读。</p>
         </article>
         <article class="card">
           <span class="card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v14"/><path d="M8 7h11M8 12h8M8 17h11"/></svg>
           </span>
-          <h3>每条都有依据</h3>
-          <p>问题不是「模型说有问题」，而是「基准第 X 条这么写，被审件这么写，两者不一致」，原文一并给出。</p>
+          <h3>每条都有出处</h3>
+          <p>写清基准第几条、被审件怎么写的、两者差在哪，原文直接贴出来。</p>
         </article>
         <article class="card">
           <span class="card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
           </span>
           <h3>判断留给人</h3>
-          <p>逐条「确认 / 误报」由人裁决并落库；存在分歧的条目保留 <code>[存在未决分歧]</code> 标记，不抹平。</p>
+          <p>确认或误报由人裁决并落库，裁决结果会变成下一次审核的参考。</p>
         </article>
       </div>
 
       <div class="note">
         <b>诚实边界</b>
-        <p>不承诺准确率——原型阶段的每一个数都以实测为准，规格里标 <code>??</code> 的位置表示「尚未标定」，不填估计值。本次未纳入审核范围的要求、失败或部分完成的专家，都会单独列成清单，不会被静默当成「没问题」。</p>
+        <p>不承诺准确率。未纳入审核范围的要求、失败或部分完成的专家，都单独列成清单，不混进「没问题」里。规格里标 <code>??</code> 的数是尚未标定的，不填估计值。</p>
       </div>
     </div>
   </section>
@@ -122,33 +125,33 @@
     <div class="wrap">
       <header class="sec-head">
         <p class="kicker">审核流程</p>
-        <h2>从入库到报告，六步走完</h2>
-        <p class="sec-lede">前两步确定口径，中间三步产出候选问题，最后一步把结论写成可归档的文档。</p>
+        <h2>从入库到报告，六步</h2>
+        <p class="sec-lede">前两步定口径，中间三步出候选问题，最后一步把结论写成能归档的文档。</p>
       </header>
       <ol class="steps">
         <li>
           <span class="step-n">1</span>
-          <div><h3>基准入库</h3><p>制度 / 规程进知识库，切成条款级片段，按章节与编号建索引，作为「比对依据」。</p></div>
+          <div><h3>基准入库</h3><p>制度、规程进知识库，切成条款，按章节和编号建索引，作为比对依据。</p></div>
         </li>
         <li>
           <span class="step-n">2</span>
-          <div><h3>上传被审件</h3><p>Word 走结构化抽取；PDF 走异步解析，版面、表格、图与公式分别处理，失败不静默降级。</p></div>
+          <div><h3>上传被审件</h3><p>Word 走结构化抽取；PDF 走异步解析，版面、表格、图、公式分开处理，失败就报错，不静默降级。</p></div>
         </li>
         <li>
           <span class="step-n">3</span>
-          <div><h3>解析与脱敏</h3><p>抽出条款结构做可读性处理，敏感信息按映射脱敏，映射关系可人工编辑后按新映射重写产物。</p></div>
+          <div><h3>解析与脱敏</h3><p>抽出条款结构；敏感信息换成映射标记，映射可以人工改，改完按新映射重写产物。</p></div>
         </li>
         <li>
           <span class="step-n">4</span>
-          <div><h3>专家并行审核</h3><p>五个域专家各司其职，知识评审按需多实例并行；调度给每个槽位指定一个技能。</p></div>
+          <div><h3>专家并行审核</h3><p>五个域专家各管一段，知识评审按需开到 8 个实例，每个槽位挂一个技能。</p></div>
         </li>
         <li>
           <span class="step-n">5</span>
-          <div><h3>逐条复核</h3><p>人在问题清单上逐条裁决，确认的进经验库，误报的留痕，用于后续同类判断。</p></div>
+          <div><h3>逐条复核</h3><p>确认的进经验库，驳回的留痕，下次同类问题少报一次。存在分歧的条目保留 <code>[存在未决分歧]</code> 标记。</p></div>
         </li>
         <li>
           <span class="step-n">6</span>
-          <div><h3>出报告</h3><p>问题按四档严重度分组，附文件画像、未映射发现与未就绪清单，可一键导出 Word。</p></div>
+          <div><h3>出报告</h3><p>按四档处置级分组，附文件画像、未锚定发现、未就绪专家清单，可导出 Word。</p></div>
         </li>
       </ol>
     </div>
@@ -159,39 +162,50 @@
       <header class="sec-head">
         <p class="kicker">核心能力</p>
         <h2>让人能复核的六个设计</h2>
-        <p class="sec-lede">每一处都对应一个现实问题：专家不够细、技能塞不下、结论说不清、数据不敢传。</p>
+        <p class="sec-lede">每一处对应一个具体问题：专家不够细、技能塞不下、结论说不清、数据不敢传。</p>
       </header>
       <div class="grid grid-3">
         <article class="card card-tall">
           <h3>五域专家 + 知识评审</h3>
-          <p>数值校准、适用范围、漏项、引用、文件形式五个域必派；知识评审按需 0–8 个实例，各自盯不同侧面。</p>
+          <p>数值校准、适用范围、漏项、引用、文件形式五域必派；知识评审按需开到 8 个实例，各盯不同侧面。</p>
           <p class="tags"><span>必派五域</span><span>实例可扩</span></p>
         </article>
         <article class="card card-tall">
           <h3>一槽一技能</h3>
-          <p>调度为每个评审槽最多指定一个技能；要同时按多个技能核查，就派多个实例——这样责任边界不会糊在一起。</p>
+          <p>每个评审槽最多挂一个技能。要同时按多个技能核查就多开实例，责任边界不会糊在一起。</p>
           <p class="tags"><span>技能路由</span><span>槽位隔离</span></p>
         </article>
         <article class="card card-tall">
           <h3>逐条依据原文</h3>
-          <p>每个问题都绑定基准条款与原文引用，报告里能直接对照；没有基准对应的发现单独归入「未映射」。</p>
+          <p>问题绑定基准条款与原文引用，报告里能对照；找不到基准对应的，单独进「未锚定」清单。</p>
           <p class="tags"><span>原文引用</span><span>条款锚点</span></p>
         </article>
         <article class="card card-tall">
           <h3>完整性结论可解释</h3>
-          <p>结论分「完成 / 部分完成 / 未完成」，并列出失败与部分完成的专家。差在哪，报告里看得见。</p>
+          <p>结论分完成 / 部分完成 / 未完成，并列出失败与部分完成的专家。差在哪，报告里看得见。</p>
           <p class="tags"><span>三态结论</span><span>未就绪清单</span></p>
         </article>
         <article class="card card-tall">
           <h3>上传即脱敏</h3>
-          <p>文档中的敏感信息在出网前替换为映射标记，映射可人工校对；PDF 解析产物按编辑后的映射重写。</p>
+          <p>敏感信息在出网前换成映射标记，映射可人工校对；PDF 解析产物按改动后的映射重写。</p>
           <p class="tags"><span>映射可编辑</span><span>产物重写</span></p>
         </article>
         <article class="card card-tall">
           <h3>定时无人值守</h3>
-          <p>计划页预设时间与目标，到点自动起审；多任务按先来先审排队，服务停机后按宽限期补跑或记为错过。</p>
+          <p>计划页设好时间与目标，到点自动起审；任务按先来先审排队，停机后按宽限期补跑或记为错过。</p>
           <p class="tags"><span>计划调度</span><span>排队可见</span></p>
         </article>
+      </div>
+
+      <div class="note">
+        <b>复核一次，下一次更准</b>
+        <p>每次复核都会沉淀：确认的、驳回的、人工补的备注，提炼成可检索的经验条目，下次审核时按相似度召回并注入上下文。经验可以人工改、可以删，也能整库重嵌。总开关在设置页，默认关闭——关了就不提炼、不召回、不注入。</p>
+        <div class="exp">
+          <div class="exp-step"><b>复核裁决</b><span>人确认或驳回，附理由</span></div>
+          <div class="exp-step"><b>提炼条目</b><span>原文片段 + 要求字段 + 备注</span></div>
+          <div class="exp-step"><b>嵌入入库</b><span>与前语料同库，可增可改</span></div>
+          <div class="exp-step"><b>召回注入</b><span>下次审核按相似度带回</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -201,7 +215,7 @@
       <header class="sec-head">
         <p class="kicker">界面</p>
         <h2>一屏看到：审到哪了、查出什么、结论是什么</h2>
-        <p class="sec-lede">左侧七页导航，中间问题清单，右侧结论与复核进度。下面是布局示意，非真实数据。</p>
+        <p class="sec-lede">左边七页导航，中间问题清单，右边结论与复核进度。下面是布局示意，非真实数据。</p>
       </header>
 
       <div class="mock" role="img" aria-label="审核页界面布局示意：左侧七页导航，中间为带严重度与依据原文的问题清单，右侧为完整性结论与复核进度">
@@ -236,7 +250,7 @@
             <div class="fin">
               <div class="fin-top"><span class="sev sev-1">严重</span><span class="fin-src">来源：数值校准</span></div>
               <p class="fin-title">灭菌温度上限与基准规定不一致</p>
-              <blockquote>「灭菌温度应控制在 121 ℃ ± 1 ℃，超出范围须记录偏差并评估。」<cite>基准 · 条款 4.2.1</cite></blockquote>
+              <blockquote>「灭菌温度应控制在 121 ℃ ± 1 ℃，超出范围须记录偏差并评估。」<cite>基准 · 条款 4.2-1</cite></blockquote>
             </div>
 
             <div class="fin">
@@ -254,7 +268,7 @@
             <p class="verdict">部分完成</p>
             <p class="kv"><span>要求覆盖</span><b>128 / 128</b></p>
             <p class="kv"><span>未就绪专家</span><b class="warn">1</b></p>
-            <p class="kv"><span>未映射发现</span><b>3</b></p>
+            <p class="kv"><span>未锚定发现</span><b>3</b></p>
             <p class="panel-t">复核进度</p>
             <p class="kv"><span>已确认</span><b>4</b></p>
             <p class="kv"><span>误报</span><b>1</b></p>
@@ -270,7 +284,7 @@
           <li><b>计划</b><span>定时无人值守、排队与历史</span></li>
           <li><b>知识库</b><span>基准入库、语料与解析产物</span></li>
           <li><b>历史</b><span>历次审核记录与报告回看</span></li>
-          <li><b>经验</b><span>复核结论沉淀、检索与采纳</span></li>
+          <li><b>经验</b><span>复核沉淀、检索、采纳与重嵌</span></li>
           <li><b>技能</b><span>技能库与专家技能绑定</span></li>
           <li><b>设置</b><span>模型、解析服务、运行参数</span></li>
         </ul>
@@ -278,12 +292,59 @@
     </div>
   </section>
 
-  <section class="section" id="stack">
+  <section class="section" id="results">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="kicker">运行效果</p>
+        <h2>实跑出来的数</h2>
+        <p class="sec-lede">截至 2026-10-29 的实测读数。运行库与归档库并存，两库分别统计，不合并。样本均为内部文件。</p>
+      </header>
+      <div class="grid grid-3">
+        <article class="card">
+          <p class="stat-num">92 次</p>
+          <p class="stat-label">真实审核：运行库 30 次 + 归档库 70 次</p>
+          <p class="stat-note">2026-10-04 至 2026-10-29</p>
+        </article>
+        <article class="card">
+          <p class="stat-num">4,627 条条款</p>
+          <p class="stat-label">对应 2,914 条要求，来自 18 个源（法规 12、企业制度 6）</p>
+          <p class="stat-note">运行库读数</p>
+        </article>
+        <article class="card">
+          <p class="stat-num">833 条发现</p>
+          <p class="stat-label">主要 394、次要 382、观察项 33、严重 24</p>
+          <p class="stat-note">运行库累计，裁决前的原始条数</p>
+        </article>
+        <article class="card">
+          <p class="stat-num">151 个技能包</p>
+          <p class="stat-label">VPP 49、PDA 74、GMP 23、领域审核 5</p>
+          <p class="stat-note">含核查项 1,878 条、数值阈值 8,897 行</p>
+        </article>
+        <article class="card">
+          <p class="stat-num">命中率 87.5%</p>
+          <p class="stat-label">同一份工艺验证方案，人工合并去重 48 个独立问题，命中 42 个</p>
+          <p class="stat-note">换执行通道与推理深度后分别为 75.0% 与 31.3%，同一被审件对照</p>
+        </article>
+        <article class="card">
+          <p class="stat-num">误报 0%–13%</p>
+          <p class="stat-label">单文件小样本对照；回归集 30 个埋点首跑命中 6/7</p>
+          <p class="stat-note">历史人工裁决 77 条中驳回 16 条，误报率 20.8%</p>
+        </article>
+      </div>
+
+      <div class="note">
+        <b>口径与已知限制</b>
+        <p>完整性：运行库 30 次审核判为完整 25 次、不完整 3 次、未判定 2 次（两次失败）。自动化测试参数化展开后 7,009 个用例，复跑 6,866 passed / 1 failed / 3 skipped。发现条数不是质量指标——调高推理深度时条数会下降，相似问题被合并了。样本小于 25 个埋点的对照，统计意义不足。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft" id="stack">
     <div class="wrap">
       <header class="sec-head">
         <p class="kicker">技术架构</p>
         <h2>四层，一条链路</h2>
-        <p class="sec-lede">单体部署、单 worker 运行，不引入额外中间件；换取的是可预期和可运维。</p>
+        <p class="sec-lede">单体部署、单 worker 运行，不引入额外中间件，换的是可预期和可运维。</p>
       </header>
 
       <div class="stack">
@@ -297,7 +358,7 @@
         </div>
         <div class="layer layer-3">
           <p class="layer-t">能力层</p>
-          <p class="layer-d">混合检索（向量 / 词法 / 融合）· 专家与技能库 · 经验记忆 · 报告渲染</p>
+          <p class="layer-d">混合检索（向量 / 词法 / 融合）· 专家与技能库 · 经验沉淀与召回 · 报告渲染</p>
         </div>
         <div class="layer layer-4">
           <p class="layer-t">数据与安全</p>
@@ -308,41 +369,41 @@
       <div class="grid grid-2 tech-notes">
         <div class="mini">
           <h3>运行形态</h3>
-          <p>Windows + Python 3.12，虚拟环境复用系统包以避免版本漂移；必须单 worker 启动——多 worker 会绕过单轮次门，并造成 SQLite 写冲突。</p>
+          <p>Windows + Python 3.12，虚拟环境复用系统包以避免版本漂移。必须单 worker 启动，多 worker 会绕过进程级单轮次门，也会造成 SQLite 写冲突。</p>
         </div>
         <div class="mini">
           <h3>数据落地</h3>
-          <p>解析产物、条款结构、图与表索引都留在本机 <code>data/</code> 下；报告同时产出 Markdown 与 Word，便于归档与二次编辑。</p>
+          <p>解析产物、条款结构、图与表索引都留在本机 <code>data/</code> 下；报告同时产出 Markdown 与 Word，便于归档和二次编辑。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section-soft" id="security">
+  <section class="section" id="security">
     <div class="wrap">
       <header class="sec-head">
         <p class="kicker">数据与安全</p>
         <h2>先说清楚数据往哪走</h2>
-        <p class="sec-lede">制药文件不适合「先跑起来再说」。这三条是设计时就定死的，不是事后补的。</p>
+        <p class="sec-lede">制药文件不适合先跑起来再说。这三条是设计时就定死的。</p>
       </header>
       <div class="grid grid-3">
         <article class="card">
           <h3>密钥只存密文</h3>
-          <p>AES-256-GCM 加密后入库，密钥由本机机器码派生。换机器就解不开，必须重新录入——这是取舍：只拿走 data/ 也拿不到密钥。</p>
+          <p>AES-256-GCM 加密后入库，密钥由本机机器码派生。换机器就解不开，必须重新录入。这是个取舍：只拿走 data/ 也拿不到密钥。</p>
         </article>
         <article class="card">
           <h3>出网只有一个口</h3>
-          <p>模型与视觉调用统一走单一网关，PDF 解析是登记过的独立通道。两处都有台账，写了发什么、发给谁、什么时候触发。</p>
+          <p>模型与视觉调用统一走单一网关，PDF 解析是登记过的独立通道。两处都有台账，写清发什么、发给谁、什么时候触发。</p>
         </article>
         <article class="card">
           <h3>数据不整目录外发</h3>
-          <p><code>data/</code> 内含企业文件副本与密钥密文，不进仓库、不打包外发；本页也不含任何企业文件内容。</p>
+          <p><code>data/</code> 里有企业文件副本和密钥密文，不进仓库、不打包外发。本页也不含任何企业文件内容。</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="faq">
+  <section class="section section-soft" id="faq">
     <div class="wrap wrap-narrow">
       <header class="sec-head">
         <p class="kicker">常见问题</p>
@@ -350,23 +411,31 @@
       </header>
       <details>
         <summary>它能替代审核员吗？</summary>
-        <p>不能，也没这么设计。它输出的是「待复核的问题候选」：定位、依据、原文都给了，判断仍然由人下。报告里每条都留有复核位。</p>
+        <p>不能，也没这么设计。它输出的是待复核的问题候选：定位、依据、原文都给了，判断仍由人下。报告里每条都留着复核位。</p>
       </details>
       <details>
         <summary>支持哪些文件格式？</summary>
-        <p>Word（.doc / .docx）走结构化抽取；PDF 走异步解析任务，版面、表格、图与公式分别处理，扫描件另做 OCR 复核。解析失败会明确报错，不会静默降级成本地粗解析。</p>
+        <p>Word（.doc / .docx）走结构化抽取；PDF 走异步解析任务，版面、表格、图与公式分开处理，扫描件另做 OCR 复核。解析失败会明确报错，不会静默降级成本地粗解析。</p>
       </details>
       <details>
         <summary>文件内容会不会出网？</summary>
-        <p>会，但边界是明确的：条款文本发往所配置的模型端点，PDF 只发文件字节或页面图像，不发送审核问题与报告内容。全部去向在项目 README 的外发台账里逐条登记，且需使用方书面确认后才允许。</p>
+        <p>会，但边界是明确的：条款文本发往所配置的模型端点，PDF 只发文件字节或页面图像，不发审核问题与报告内容。去向在项目外发台账里逐条登记，需使用方确认后才允许。</p>
       </details>
       <details>
-        <summary>为什么必须单 worker、常驻运行？</summary>
-        <p>单 worker 是为了保证「一次只跑一轮审核」的进程级门不被绕过，同时避免 SQLite 写冲突；常驻是为了定时计划能到点触发——服务不在跑，计划不会执行。</p>
+        <summary>使用本系统需要哪些 AI 模型？</summary>
+        <p>三类，都在设置页自己配，不用改代码：<br>
+        ① <b>聊天模型</b>——审核链路的主力，图片与公式转写也走它（DeepSeek 官方端点已跑通）；<br>
+        ② <b>嵌入模型</b>——语料与经验的向量化和检索（bge-m3 已跑通）；<br>
+        ③ <b>PDF 解析服务</b>——MinerU 做主解析、PaddleOCR 做扫描件复核，地址由使用方填。<br>
+        密钥只在本机加密入库，不进配置文件。换供应商只要改配置行。</p>
+      </details>
+      <details>
+        <summary>本系统的实际审核效果受哪些影响？</summary>
+        <p>系统调用的 LLM 模型能力、思考深度会显著影响实际审核效果。同一份被审件只换执行通道与推理深度，命中率就从 87.5% 掉到 75.0% 和 31.3%——模型是这套系统里最大的变量。</p>
       </details>
       <details>
         <summary>现在是什么状态？</summary>
-        <p>原型 / 内部验证阶段。七个页面与主链路可用，功能仍在收敛，规格与缺陷逐条登记。页面上的能力描述以当前实现为准，不承诺准确率数字。</p>
+        <p>原型阶段，由复星安特金精益运营部开发，七个页面与主链路都可用，功能仍在收敛，规格与缺陷逐条登记。页面上的能力描述以当前实现为准，不承诺准确率数字。</p>
       </details>
     </div>
   </section>
@@ -377,6 +446,7 @@
   <div class="wrap foot-inner">
     <div>
       <p class="foot-brand">pharma_audit · 制药 GMP 文件审核辅助系统</p>
+      <p class="foot-org">复星安特金 · 精益运营部 开发</p>
       <p class="foot-note">产品介绍页，不含任何企业文件内容 · 原型阶段，能力以实际实现为准</p>
     </div>
     <div class="foot-links">
