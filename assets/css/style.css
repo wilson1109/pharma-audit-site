@@ -172,6 +172,7 @@ h3{margin:0 0 8px;font-size:16.5px;font-weight:620;letter-spacing:-.008em}
   background:#fff;border:1px solid var(--line);border-left:3px solid var(--brand);
 }
 .note b{display:block;margin-bottom:6px;font-size:13px;letter-spacing:.04em;color:var(--brand-ink)}
+.note strong{font-weight:600;color:var(--brand-ink)}
 .note p{margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.8}
 
 /* ── 流程 ───────────────────────────────────────────── */
